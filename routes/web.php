@@ -16,27 +16,27 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('front')->name("front.")->group(function (){
-    Route::get('/',FrontHomeController::class)->name('index');
+    Route::get('/',FrontHomeController::class)->middleware('auth')->name('index');
     Route::view('/login','front.auth.login');
     Route::view('/register','front.auth.register');
     Route::view('/forgot','front.auth.forgot-password');
 });
 
-
+require __DIR__.'/auth.php';
 
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+//Route::get('/dashboard', function () {
+//    return view('dashboard');
+//})->middleware(['auth', 'verified'])->name('dashboard');
+//
+//Route::middleware('auth')->group(function () {
+//    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+//});
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
 
-require __DIR__.'/auth.php';
