@@ -19,7 +19,6 @@ class User extends Authenticatable
      * @var array<int, string>
      */
 
-
     /** Custom Style for Reset Email **/
     public function sendPasswordResetNotification($token)
     {
