@@ -28,7 +28,7 @@ require __DIR__.'/auth.php';
 
 //***  Backend Routes ***//
 Route::prefix('back')->name("back.")->group(function (){
-    Route::get('/',BackHomeController::class)->name('index');
+    Route::get('/',BackHomeController::class)->middleware('admin')->name('index');
     Route::view('/login','back.auth.login');
     Route::view('/register','back.auth.register');
     Route::view('/forgot','back.auth.forgot-password');
