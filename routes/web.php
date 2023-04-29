@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Back\BackHomeController;
 use App\Http\Controllers\FrontHomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+//***  Frontend Routes ***//
 Route::prefix('front')->name("front.")->group(function (){
     Route::get('/',FrontHomeController::class)->middleware('auth')->name('index');
     Route::view('/login','front.auth.login');
@@ -23,6 +24,16 @@ Route::prefix('front')->name("front.")->group(function (){
 });
 
 require __DIR__.'/auth.php';
+
+
+//***  Backend Routes ***//
+Route::prefix('back')->name("back.")->group(function (){
+    Route::get('/',BackHomeController::class)->name('index');
+    Route::view('/login','back.auth.login');
+    Route::view('/register','back.auth.register');
+    Route::view('/forgot','back.auth.forgot-password');
+});
+
 
 
 Route::get('/', function () {
