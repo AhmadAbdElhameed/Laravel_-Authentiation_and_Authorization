@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Notifications\UpdatedEmailNotification;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -17,6 +18,14 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+
+    /** Custom Style for Reset Email **/
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new UpdatedEmailNotification($token));
+    }
+
     protected $fillable = [
         'name',
         'email',
