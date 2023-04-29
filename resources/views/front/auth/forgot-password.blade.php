@@ -1,5 +1,5 @@
 
-@section('title','Front Login Page')
+@section('title','Front Forgot Password Page')
 <!DOCTYPE html>
 
 <html
