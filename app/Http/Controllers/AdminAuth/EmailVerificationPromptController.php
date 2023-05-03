@@ -19,6 +19,6 @@ class EmailVerificationPromptController extends Controller
 //                    ?  redirect()->intended(RouteServiceProvider::HOME)
                     ? to_route('front.index')
 //                    : view('auth.verify-email');
-                    : view('front.auth.verify-email');
+                    : view('back.auth.verify-email');
     }
 }

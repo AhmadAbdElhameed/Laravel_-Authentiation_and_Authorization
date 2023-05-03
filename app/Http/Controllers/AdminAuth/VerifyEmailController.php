@@ -24,6 +24,6 @@ class VerifyEmailController extends Controller
         }
 
 //        return redirect()->intended(RouteServiceProvider::HOME.'?verified=1');
-        return to_route('front.index','?verified=1');
+        return to_route('back.index','?verified=1');
     }
 }

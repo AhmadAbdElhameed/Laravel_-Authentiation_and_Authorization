@@ -18,7 +18,7 @@ class AuthenticatedSessionController extends Controller
     public function create(): View
     {
         //return view('auth.login');
-        return view('front.auth.login');
+        return view('back.auth.login');
     }
 
     /**
@@ -32,7 +32,7 @@ class AuthenticatedSessionController extends Controller
 
         //return redirect()->intended(RouteServiceProvider::HOME);
 
-        return to_route('front.index');
+        return to_route('back.index');
     }
 
     /**
