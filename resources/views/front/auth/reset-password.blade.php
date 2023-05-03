@@ -11,7 +11,6 @@
     data-template="vertical-menu-template-free"
 >
 @include('front.partials.auth_front.head')
-
 <body>
 <!-- Content -->
 

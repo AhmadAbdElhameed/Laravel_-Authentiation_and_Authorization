@@ -38,14 +38,14 @@
                     @endif
 
                     <div class="mt-4 flex items-center justify-between">
-                        <form id="formAuthentication" class="mb-3" action="{{ route('verification.send') }}" method="POST">
+                        <form id="formAuthentication" class="mb-3" action="{{ route('back.verification.send') }}" method="POST">
                             @csrf
 
                             <button class="btn btn-primary d-grid w-100">Resend Verification Email</button>
 
                         </form>
 
-                        <form method="POST" action="{{ route('logout') }}">
+                        <form method="POST" action="{{ route('back.logout') }}">
                             @csrf
 
                             <button class="btn btn-danger d-grid w-30">
